@@ -8,9 +8,7 @@ public class Rocket : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(CapsuleCol);
-        print(Physics.OverlapSphere(transform.position, 1.3f, 6).Length);
-        Physics.OverlapSphere(transform.position, 1.3f, 0).ToList().ForEach(_collider => Destroy(_collider.gameObject));
+        Physics.OverlapSphere(transform.position, 3f).Where(collider => collider.GetComponent<Arabic>() != null).ToList().ForEach(collider => collider.GetComponent<Arabic>().Damage(120, transform.position));
         Destroy(gameObject);
     }
 }

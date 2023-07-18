@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class RocketLauncher : MonoBehaviour
+public class Plane : MonoBehaviour
 {
     [SerializeField] private Camera _Camera;
     [SerializeField] private Transform RocketSpawner;
@@ -25,6 +25,6 @@ public class RocketLauncher : MonoBehaviour
         GameObject RocketGO = Instantiate(RocketPF, RocketSpawner.position, Quaternion.identity);
         RocketGO.transform.LookAt(hit.point, RocketGO.transform.right);
         yield return new WaitForFixedUpdate();
-        RocketGO.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, 100), ForceMode.Impulse);
+        RocketGO.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, 200), ForceMode.Impulse);
     }
 }
