@@ -11,7 +11,8 @@ public class Rocket : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Physics.OverlapSphere(transform.position, 3f).Where(collider => collider.GetComponent<Arabic>() != null).ToList().ForEach(collider => collider.GetComponent<Arabic>().Damage(Mathf.Lerp(0f, 130, 1f / Vector3.Distance(transform.position, collider.transform.position)), transform.position));
+        Physics.OverlapSphere(transform.position, 3f).Where(collider => collider.GetComponent<Enemy>() != null).ToList().ForEach(collider => collider.GetComponent<Enemy>().Damage(Mathf.Lerp(0f, 130, 1f / Vector3.Distance(transform.position, collider.transform.position)), transform.position));
+
         Destroy(goRigidbody);
         Destroy(goMeshRenderer);
         transform.position = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
