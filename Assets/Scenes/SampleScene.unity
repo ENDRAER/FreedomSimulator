@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44187135, g: 0.49081188, b: 0.570771, a: 1}
+  m_IndirectSpecularColor: {r: 0.44187096, g: 0.49081153, b: 0.57077044, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: d323a207357366546bb7838ad16c9908, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 5c02ea0b457425f41bdda100fea842ed, type: 2}
 --- !u!1 &72060
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,9 +597,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d58046a3e4740d41be63fcb13d7bac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Camera: {fileID: 963194227}
-  RocketSpawner: {fileID: 1960565941}
-  RocketPF: {fileID: 4510694925113632765, guid: c1d8ca91aa0d087418586da59d870b62, type: 3}
+  camera: {fileID: 963194227}
+  rocketSpawner: {fileID: 1960565941}
+  rocketPF: {fileID: 4510694925113632765, guid: c1d8ca91aa0d087418586da59d870b62, type: 3}
+  arabicPF: {fileID: 2084637544262260032, guid: 2010effe81888734bbd515e41da9917b, type: 3}
+  HomesGO:
+  - {fileID: 8164078559783186918}
+  - {fileID: 8164078559520732007}
+  - {fileID: 8164078559370797829}
+  - {fileID: 8164078558329669188}
+  - {fileID: 770067321}
+  - {fileID: 1505007019}
+  - {fileID: 1334495313}
+  - {fileID: 1207189608}
+  - {fileID: 2014371514}
 --- !u!1 &338855302
 GameObject:
   m_ObjectHideFlags: 0
@@ -1385,7 +1396,7 @@ GameObject:
   - component: {fileID: 770067325}
   - component: {fileID: 770067324}
   - component: {fileID: 770067323}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: sandhouse (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1404,7 +1415,7 @@ Transform:
   m_LocalScale: {x: 0.005, y: 1, z: 0.005}
   m_Children: []
   m_Father: {fileID: 1675615429}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 138.522, y: 90, z: -90}
 --- !u!65 &770067323
 BoxCollider:
@@ -1417,7 +1428,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.2000008, y: 2, z: 3.2000008}
+  m_Size: {x: 3.2, y: 2, z: 3.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &770067324
 MeshRenderer:
@@ -1645,7 +1656,7 @@ GameObject:
   - component: {fileID: 839911304}
   - component: {fileID: 839911303}
   - component: {fileID: 839911302}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: sandhouse (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1931,9 +1942,9 @@ Camera:
   m_ClearFlags: 2
   m_BackGroundColor: {r: 0.8745099, g: 0.8196079, b: 0.7176471, a: 0}
   m_projectionMatrixMode: 1
-  m_GateFitMode: 2
+  m_GateFitMode: 3
   m_FOVAxisMode: 0
-  m_SensorSize: {x: 36, y: 24}
+  m_SensorSize: {x: 107.2, y: 253}
   m_LensShift: {x: 0, y: 0}
   m_FocalLength: 50
   m_NormalizedViewPortRect:
@@ -1944,7 +1955,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 55
+  field of view: 50
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -2847,7 +2858,7 @@ GameObject:
   - component: {fileID: 1207189612}
   - component: {fileID: 1207189611}
   - component: {fileID: 1207189610}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: sandhouse (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2866,7 +2877,7 @@ Transform:
   m_LocalScale: {x: 0.0049999994, y: 1, z: 0.005}
   m_Children: []
   m_Father: {fileID: 1675615429}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1207189610
 BoxCollider:
@@ -3025,7 +3036,7 @@ GameObject:
   - component: {fileID: 1334495317}
   - component: {fileID: 1334495316}
   - component: {fileID: 1334495315}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: sandhouse (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3044,7 +3055,7 @@ Transform:
   m_LocalScale: {x: 0.0050000004, y: 1, z: 0.0050000013}
   m_Children: []
   m_Father: {fileID: 1675615429}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 48.43, y: 90, z: -90}
 --- !u!65 &1334495315
 BoxCollider:
@@ -3285,7 +3296,7 @@ GameObject:
   - component: {fileID: 1505007023}
   - component: {fileID: 1505007022}
   - component: {fileID: 1505007021}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: sandhouse (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3304,7 +3315,7 @@ Transform:
   m_LocalScale: {x: 0.005, y: 1, z: 0.0049999976}
   m_Children: []
   m_Father: {fileID: 1675615429}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: -23.467, y: 90, z: -90}
 --- !u!65 &1505007021
 BoxCollider:
@@ -3399,7 +3410,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1534150873
@@ -3464,6 +3475,7 @@ Transform:
   m_Children:
   - {fileID: 993782944}
   - {fileID: 1675615429}
+  - {fileID: 1924949287}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -3990,7 +4002,6 @@ Transform:
   - {fileID: 1151388028397396060}
   - {fileID: 1151388028216012862}
   - {fileID: 1151388029320009087}
-  - {fileID: 1151388027455159258}
   - {fileID: 770067322}
   - {fileID: 1505007020}
   - {fileID: 1334495314}
@@ -4739,7 +4750,7 @@ GameObject:
   - component: {fileID: 1924949286}
   - component: {fileID: 1924949285}
   m_Layer: 0
-  m_Name: BattleField
+  m_Name: SandTexture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4802,12 +4813,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1924949284}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 200, y: 200, z: 1}
+  m_LocalScale: {x: 4.444444, y: 4.444445, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 1534150875}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1948962849
 GameObject:
@@ -5097,7 +5108,7 @@ GameObject:
   - component: {fileID: 2014371518}
   - component: {fileID: 2014371517}
   - component: {fileID: 2014371516}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: sandhouse (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5116,7 +5127,7 @@ Transform:
   m_LocalScale: {x: 0.0049999994, y: 1, z: 0.005}
   m_Children: []
   m_Father: {fileID: 1675615429}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 5.097, y: -90, z: 90}
 --- !u!65 &2014371516
 BoxCollider:
@@ -5181,20 +5192,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2014371514}
   m_Mesh: {fileID: -2432090755550338912, guid: 5d464ce98b3d862499fa9a5990a5d1a9, type: 3}
---- !u!4 &1151388027455159258
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8164078559657470177}
-  m_LocalRotation: {x: -0.46199143, y: 0.53531665, z: -0.53531665, w: 0.46199143}
-  m_LocalPosition: {x: -0.0179, y: -0.051500008, z: -0.9300003}
-  m_LocalScale: {x: 0.0050000004, y: 1, z: 0.0050000013}
-  m_Children: []
-  m_Father: {fileID: 1675615429}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1151388027597906653
 Transform:
   m_ObjectHideFlags: 0
@@ -5217,7 +5214,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8164078559370797829}
   m_LocalRotation: {x: -0.13770768, y: 0.693568, z: -0.693568, w: 0.13770768}
-  m_LocalPosition: {x: -0.068, y: -0.012200003, z: -0.95000017}
+  m_LocalPosition: {x: -0.0801, y: -0.0102, z: -0.95}
   m_LocalScale: {x: 0.0050000004, y: 1, z: 0.005}
   m_Children: []
   m_Father: {fileID: 1675615429}
@@ -5231,7 +5228,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8164078559520732007}
   m_LocalRotation: {x: 0.37470955, y: 0.5996606, z: -0.5996606, w: -0.37470955}
-  m_LocalPosition: {x: -0.0079, y: 0.0175, z: -0.93}
+  m_LocalPosition: {x: 0, y: 0, z: -0.93}
   m_LocalScale: {x: 0.0049999994, y: 1, z: 0.0049999994}
   m_Children:
   - {fileID: 839911301}
@@ -5301,48 +5298,6 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8164078559783186918}
-  m_Enabled: 1
-  m_CastShadows: 2
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 87fcfc6f55ca88c428b27270601966e6, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!23 &1587545475074696708
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8164078559657470177}
   m_Enabled: 1
   m_CastShadows: 2
   m_ReceiveShadows: 1
@@ -5486,14 +5441,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8164078559783186918}
   m_Mesh: {fileID: -2432090755550338912, guid: 5d464ce98b3d862499fa9a5990a5d1a9, type: 3}
---- !u!33 &2823090747613905552
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8164078559657470177}
-  m_Mesh: {fileID: -2432090755550338912, guid: 5d464ce98b3d862499fa9a5990a5d1a9, type: 3}
 --- !u!33 &2823090747750848790
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -5596,7 +5543,7 @@ GameObject:
   - component: {fileID: 2823090746828237877}
   - component: {fileID: 1587545474825488545}
   - component: {fileID: 8164078558329669189}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: sandhouse (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5628,7 +5575,7 @@ GameObject:
   - component: {fileID: 2823090747934361972}
   - component: {fileID: 1587545475868978656}
   - component: {fileID: 8164078559370797830}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: sandhouse (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5660,7 +5607,7 @@ GameObject:
   - component: {fileID: 2823090747750848790}
   - component: {fileID: 1587545475748380034}
   - component: {fileID: 8164078559520732008}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: sandhouse (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5674,38 +5621,6 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8164078559520732007}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.2000008, y: 2, z: 3.2000008}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &8164078559657470177
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1151388027455159258}
-  - component: {fileID: 2823090747613905552}
-  - component: {fileID: 1587545475074696708}
-  - component: {fileID: 8164078559657470178}
-  m_Layer: 7
-  m_Name: sandhouse (4)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
-  m_IsActive: 1
---- !u!65 &8164078559657470178
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8164078559657470177}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -5724,7 +5639,7 @@ GameObject:
   - component: {fileID: 2823090747488492439}
   - component: {fileID: 1587545474932244227}
   - component: {fileID: 8164078559783186919}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: sandhouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
