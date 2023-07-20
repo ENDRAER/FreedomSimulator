@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.AI;
+using System.Linq;
 
 public class PlayMode : MonoBehaviour
 {
@@ -17,7 +19,8 @@ public class PlayMode : MonoBehaviour
     [SerializeField] private GameObject[] HomesGO;
     [NonSerialized] public List<GameObject> EnemiesOnArea = new List<GameObject>();
     [SerializeField] private Coroutine spawnCoroutine;
-    [SerializeField] public int Score;
+    [Header("Interface")]
+    [NonSerialized] public int Score;
     [SerializeField] public TextMeshPro ScoreText;
 
 
@@ -70,9 +73,15 @@ public class PlayMode : MonoBehaviour
 
 
     #region Interface
-    public void ScoreUpdater()
+    public void ScoreUpdater(int addedScore)
     {
-        //ScoreText.text = Score
+        Score += addedScore;
+        ScoreText.text = "";
+        for (int i = 3; i != -1; i--)
+        {
+            if(Score - i >= 0)
+                ScoreText.text += Score - i + "\n";
+        }
     }
 
 

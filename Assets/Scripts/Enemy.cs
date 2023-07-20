@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
                 health -= damage;
                 if (health <= 0)
                 {
-                    playModeCS.ScoreText.text = (++playModeCS.Score).ToString();
+                    playModeCS.ScoreUpdater(1);
                     playModeCS.EnemiesOnArea.Remove(gameObject);
                     Destroy(gameObject);
                 }
@@ -57,8 +57,7 @@ public class Enemy : MonoBehaviour
                 }
                 break;
             case _EnemyType.NuclearDonkey:
-                playModeCS.Score += playModeCS.EnemiesOnArea.Count;
-                playModeCS.ScoreText.text = playModeCS.Score.ToString();
+                playModeCS.ScoreUpdater(playModeCS.EnemiesOnArea.Count);
                 playModeCS.EnemiesOnArea.ForEach(enemies => Destroy(enemies));
                 playModeCS.EnemiesOnArea.Clear();
                 Instantiate(NuclearExplosionPF, transform.position, Quaternion.identity);
