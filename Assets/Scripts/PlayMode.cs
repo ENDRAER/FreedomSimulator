@@ -1,9 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Experimental.AI;
 
 public class PlayMode : MonoBehaviour
 {
@@ -17,6 +17,8 @@ public class PlayMode : MonoBehaviour
     [SerializeField] private GameObject[] HomesGO;
     [NonSerialized] public List<GameObject> EnemiesOnArea = new List<GameObject>();
     [SerializeField] private Coroutine spawnCoroutine;
+    [SerializeField] public int Score;
+    [SerializeField] public TextMeshPro ScoreText;
 
 
     private void Start()
@@ -65,4 +67,22 @@ public class PlayMode : MonoBehaviour
         EnemiesOnArea.ForEach(GO => GO.GetComponent<NavMeshAgent>().speed = 5);
         EnemiesOnArea.ForEach(GO => GO.GetComponent<Animator>().speed = 1);
     }
+
+
+    #region Interface
+    public void ScoreUpdater()
+    {
+        //ScoreText.text = Score
+    }
+
+
+    public void RecordsButtonDown(Transform trans)
+    {
+        trans.localPosition = new Vector3(0, -0.06f, 0);
+    }
+    public void ButtonUp(Transform trans)
+    {
+        trans.localPosition = new Vector3();
+    }
+    #endregion
 }
