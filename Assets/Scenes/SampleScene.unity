@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44187135, g: 0.49081188, b: 0.570771, a: 1}
+  m_IndirectSpecularColor: {r: 0.44187096, g: 0.49081153, b: 0.57077044, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -378,8 +378,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 203202420}
-  - component: {fileID: 203202422}
   - component: {fileID: 203202421}
+  - component: {fileID: 203202422}
   m_Layer: 0
   m_Name: nose
   m_TagString: Untagged
@@ -602,6 +602,7 @@ MonoBehaviour:
   rocketPF: {fileID: 4510694925113632765, guid: c1d8ca91aa0d087418586da59d870b62, type: 3}
   donkeysPF:
   - {fileID: 1029886340722139082, guid: 7fbf94e477bf45942a895660da951d3d, type: 3}
+  - {fileID: 1029886340722139082, guid: 74fd90c7a7383284bbb184c827fda517, type: 3}
   arabicPF: {fileID: 2084637544262260032, guid: 2010effe81888734bbd515e41da9917b, type: 3}
   HomesGO:
   - {fileID: 8164078559783186918}
@@ -640,7 +641,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 338855302}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 21.9, y: 1.35, z: 0.4}
+  m_LocalPosition: {x: 21.8, y: 1.35, z: 0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1581228028}
@@ -668,7 +669,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 44, y: 2.7, z: 0.4}
-  m_Center: {x: 0, y: 0, z: 0.10000001}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &338855305
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -728,8 +729,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 445468470}
-  - component: {fileID: 445468472}
   - component: {fileID: 445468471}
+  - component: {fileID: 445468472}
   m_Layer: 0
   m_Name: BWWings
   m_TagString: Untagged
@@ -2572,7 +2573,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 87fcfc6f55ca88c428b27270601966e6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2775,8 +2776,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1174273726}
-  - component: {fileID: 1174273728}
   - component: {fileID: 1174273727}
+  - component: {fileID: 1174273728}
   m_Layer: 0
   m_Name: FWWings
   m_TagString: Untagged
@@ -4039,7 +4040,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1700533380}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.4, y: 1.35, z: 22.3}
+  m_LocalPosition: {x: -0.4, y: 1.35, z: 22.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1658596952}
@@ -4067,7 +4068,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 44, y: 2.7, z: 0.4}
-  m_Center: {x: 0, y: 0, z: 0.10000001}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1700533383
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4309,7 +4310,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1767825773}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.35, z: -21.9}
+  m_LocalPosition: {x: 0, y: 1.35, z: -21.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3810266457317906906}
@@ -4337,7 +4338,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 44, y: 2.7, z: 0.4}
-  m_Center: {x: 0, y: 0, z: 0.10000001}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1767825776
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4415,7 +4416,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1777869761}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -22.3, y: 1.35, z: 0}
+  m_LocalPosition: {x: -22.2, y: 1.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 994854125}
@@ -4443,7 +4444,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 44, y: 2.7, z: 0.4}
-  m_Center: {x: 0, y: 0, z: 0.10000001}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1777869764
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4751,6 +4752,7 @@ GameObject:
   - component: {fileID: 1924949287}
   - component: {fileID: 1924949286}
   - component: {fileID: 1924949285}
+  - component: {fileID: 1924949288}
   m_Layer: 0
   m_Name: SandTexture
   m_TagString: Untagged
@@ -4822,6 +4824,20 @@ Transform:
   m_Father: {fileID: 1534150875}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!64 &1924949288
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924949284}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1948962849
 GameObject:
   m_ObjectHideFlags: 0

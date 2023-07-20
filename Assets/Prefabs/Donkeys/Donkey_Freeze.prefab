@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7422003248731824006}
   - component: {fileID: 2675637032604750421}
   m_Layer: 6
-  m_Name: Donkey_Nuclear
+  m_Name: Donkey_Freeze
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,8 +48,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be5e584815865ab4e875215e2ae5e7ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyType: 1
-  NuclearExplosionPF: {fileID: 253679909759172985, guid: 57b750fdb02d1e145ade4159f7947fb7, type: 3}
+  EnemyType: 2
+  NuclearExplosionPF: {fileID: 0}
+  FreezeExplosionPF: {fileID: 253679909759172985, guid: 070487b45fc734f4395f967c0e4af0fe, type: 3}
   goNavMeshAgent: {fileID: 7422003248731824006}
   goRB: {fileID: 0}
   HatMeshRenderer: {fileID: 0}
