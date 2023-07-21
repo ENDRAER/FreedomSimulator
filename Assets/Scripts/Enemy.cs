@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private enum _EnemyType { Arabic, NuclearDonkey, FreezeDonkey };
+    [SerializeField] private enum _EnemyType { Arabic, NuclearDonkey, FreezeDonkey, Donkey_Buffer };
     [SerializeField] private _EnemyType EnemyType;
     [NonSerialized] private PlayMode playModeCS;
     [SerializeField] private GameObject NuclearExplosionPF;
@@ -68,6 +68,20 @@ public class Enemy : MonoBehaviour
             case _EnemyType.FreezeDonkey:
                 playModeCS.FreezeStarter();
                 Instantiate(FreezeExplosionPF, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+                break;
+            case _EnemyType.Donkey_Buffer:
+                if (UnityEngine.Random.Range(0, 2) == 0)
+                {
+                    playModeCS.UpgradeCallerText.text = "increased damage";
+                    playModeCS.Damage *= 1.5f;
+                }
+                else
+                {
+                    playModeCS.UpgradeCallerText.text = "reload time reduced";
+                    playModeCS.MaxReloadTime *= 0.5f;
+                }
+                playModeCS.UpgradeCallerAnimator.Rebind();
                 Destroy(gameObject);
                 break;
         }

@@ -19,12 +19,17 @@ public class PlayMode : MonoBehaviour
     [SerializeField] private GameObject[] HomesGO;
     [NonSerialized] public List<GameObject> EnemiesOnArea = new List<GameObject>();
     [SerializeField] private Coroutine spawnCoroutine;
+    [NonSerialized] public float SpawnSpeed = 3;
+    [NonSerialized] public float EnemyHealth = 100;
+    [NonSerialized] public float Damage = 120;
     [NonSerialized] public float MaxReloadTime = 1;
     [NonSerialized] public float ReloadTime = 1;
     [NonSerialized] public int Score;
     [NonSerialized] private bool gamePlay;
     [Header("Interface")]
-    [SerializeField] public TextMeshProUGUI ScoreText;
+    [SerializeField] public TextMeshProUGUI ScoreText; 
+    [SerializeField] public TextMeshProUGUI UpgradeCallerText;
+    [SerializeField] public Animator UpgradeCallerAnimator;
     [SerializeField] public Image ReloadTimeProgressbar;
     [SerializeField] public GameObject FrozenBounds;
     [SerializeField] public GameObject EnemiesCounter;
@@ -45,27 +50,34 @@ public class PlayMode : MonoBehaviour
     {
         if (MaxReloadTime <= ReloadTime)
         {
+            ReloadTime = MaxReloadTime;
             ReloadTimeProgressbar.color = Color.green;
             if (Physics.Raycast(planeCamera.ScreenPointToRay(Input.mousePosition), out RaycastHit hit) && Input.GetKeyDown(KeyCode.Mouse0) && gamePlay)
             {
                 ReloadTime = 0;
                 ReloadTimeProgressbar.color = Color.red;
-                Instantiate(rocketPF, rocketSpawner.position, Quaternion.LookRotation(hit.point - rocketSpawner.position, rocketSpawner.right))
-                    .GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, 200), ForceMode.Impulse);
+                GameObject rocketGO = Instantiate(rocketPF, rocketSpawner.position, Quaternion.LookRotation(hit.point - rocketSpawner.position, rocketSpawner.right));
+                rocketGO.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, 200), ForceMode.Impulse);
+                rocketGO.GetComponent<Rocket>().damage = Damage;
             }
         }
         else if (MaxReloadTime > ReloadTime)
         {
-            ReloadTimeProgressbar.transform.localPosition = new Vector3(-0.899f, -1.95f, -1.7f + Mathf.Clamp(1.7f / MaxReloadTime * ReloadTime, 0, 1.7f));
             ReloadTime += Time.deltaTime;
         }
+        ReloadTimeProgressbar.transform.localPosition = new Vector3(-0.899f, -1.95f, -1.7f + Mathf.Clamp(1.7f / MaxReloadTime * ReloadTime, 0, 1.7f));
     }
 
     IEnumerator EnemySpawnerIE()
     {
-        yield return new WaitForSeconds(1);
-        if(UnityEngine.Random.Range(0, 100) < 95 || CreatedDonkey != null)
+        yield return new WaitForSeconds(SpawnSpeed);
+        SpawnSpeed *= 0.98f;
+        EnemyHealth *= 1.02f;
+        if (UnityEngine.Random.Range(0, 100) < 90 || CreatedDonkey != null)
+        {
             EnemiesOnArea.Add(Instantiate(arabicPF, HomesGO[UnityEngine.Random.Range(0, HomesGO.Length - 1)].transform.position, new Quaternion()));
+            EnemiesOnArea[EnemiesOnArea.Count - 1].GetComponent<Enemy>().health = EnemyHealth;
+        }
         else
             CreatedDonkey = Instantiate(donkeysPF[UnityEngine.Random.Range(0, donkeysPF.Length)], HomesGO[UnityEngine.Random.Range(0, HomesGO.Length - 1)].transform.position, new Quaternion());
 
@@ -85,12 +97,24 @@ public class PlayMode : MonoBehaviour
         gamePlay = false;
 
         List<int> allRecords = new List<int>();
-        PlayerPrefs.GetString("TopScores").Split('\n').Select(a => int.Parse(a)).ToList().ForEach(s => allRecords.Add(s));
+        try
+        {
+            PlayerPrefs.GetString("TopScores").Split('\n').Select(a => int.Parse(a)).ToList().ForEach(s => allRecords.Add(s));
+        }
+        catch
+        {
+
+        }
         allRecords.Add(Score);
-        allRecords.OrderByDescending(a => a).ToList();
+        allRecords = allRecords.OrderByDescending(a => a).ToList();
         PlayerPrefs.SetString("TopScores", string.Join("\n", allRecords.GetRange(0, allRecords.Count < 9? allRecords.Count : 9).Select(a => a.ToString()).ToList()));
         Score = 0;
         ScoreText.text = "0";
+
+        SpawnSpeed = 2;
+        EnemyHealth = 100;
+        Damage = 120;
+        MaxReloadTime = 1;
     }
 
     public void FreezeStarter()

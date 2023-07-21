@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be5e584815865ab4e875215e2ae5e7ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyType: 2
+  EnemyType: 3
   NuclearExplosionPF: {fileID: 0}
   FreezeExplosionPF: {fileID: 253679909759172985, guid: 070487b45fc734f4395f967c0e4af0fe, type: 3}
   goNavMeshAgent: {fileID: 7422003248731824006}
