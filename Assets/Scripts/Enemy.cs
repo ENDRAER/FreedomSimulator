@@ -47,6 +47,7 @@ public class Enemy : MonoBehaviour
                 {
                     playModeCS.ScoreUpdater(1);
                     playModeCS.EnemiesOnArea.Remove(gameObject);
+                    playModeCS.EnemiesCounter.transform.localEulerAngles = new Vector3(0, -90 + (18 * playModeCS.EnemiesOnArea.Count), 0);
                     Destroy(gameObject);
                 }
                 else
@@ -60,6 +61,7 @@ public class Enemy : MonoBehaviour
                 playModeCS.ScoreUpdater(playModeCS.EnemiesOnArea.Count);
                 playModeCS.EnemiesOnArea.ForEach(enemies => Destroy(enemies));
                 playModeCS.EnemiesOnArea.Clear();
+                playModeCS.EnemiesCounter.transform.localEulerAngles = new Vector3(0, -90 + (18 * playModeCS.EnemiesOnArea.Count), 0);
                 Instantiate(NuclearExplosionPF, transform.position, Quaternion.identity);
                 Destroy(gameObject);
                 break;
