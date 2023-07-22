@@ -21,6 +21,7 @@ public class PlayMode : MonoBehaviour
     [SerializeField] private Coroutine spawnCoroutine;
     [NonSerialized] public float SpawnSpeed = 3;
     [NonSerialized] public float EnemyHealth = 100;
+    [NonSerialized] public float EnemySpeed = 5;
     [NonSerialized] public float Damage = 120;
     [NonSerialized] public float MaxReloadTime = 1;
     [NonSerialized] public float ReloadTime = 1;
@@ -73,10 +74,12 @@ public class PlayMode : MonoBehaviour
         yield return new WaitForSeconds(SpawnSpeed);
         SpawnSpeed *= 0.98f;
         EnemyHealth *= 1.02f;
+        EnemySpeed += 0.02f;
         if (UnityEngine.Random.Range(0, 100) < 90 || CreatedDonkey != null)
         {
             EnemiesOnArea.Add(Instantiate(arabicPF, HomesGO[UnityEngine.Random.Range(0, HomesGO.Length - 1)].transform.position, new Quaternion()));
             EnemiesOnArea[EnemiesOnArea.Count - 1].GetComponent<Enemy>().health = EnemyHealth;
+            EnemiesOnArea[EnemiesOnArea.Count - 1].GetComponent<NavMeshAgent>().speed = EnemySpeed;
         }
         else
             CreatedDonkey = Instantiate(donkeysPF[UnityEngine.Random.Range(0, donkeysPF.Length)], HomesGO[UnityEngine.Random.Range(0, HomesGO.Length - 1)].transform.position, new Quaternion());
@@ -113,6 +116,7 @@ public class PlayMode : MonoBehaviour
 
         SpawnSpeed = 2;
         EnemyHealth = 100;
+        EnemySpeed = 5;
         Damage = 120;
         MaxReloadTime = 1;
     }
