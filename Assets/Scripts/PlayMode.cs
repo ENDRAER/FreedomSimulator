@@ -44,6 +44,7 @@ public class PlayMode : MonoBehaviour
 
     private void Awake()
     {
+        PlayerPrefs.DeleteAll();
         MainBridge = this;
     }
     
@@ -67,12 +68,17 @@ public class PlayMode : MonoBehaviour
             ReloadTime += Time.deltaTime;
         }
         ReloadTimeProgressbar.transform.localPosition = new Vector3(-0.899f, -1.95f, -1.7f + Mathf.Clamp(1.7f / MaxReloadTime * ReloadTime, 0, 1.7f));
+
+        if (Input.GetKeyDown(KeyCode.Space) && gamePlay)
+        {
+            Defeat();
+        }
     }
 
     IEnumerator EnemySpawnerIE()
     {
         yield return new WaitForSeconds(SpawnSpeed);
-        SpawnSpeed *= 0.98f;
+        SpawnSpeed /= 1.02f;
         EnemyHealth *= 1.02f;
         EnemySpeed += 0.02f;
         if (UnityEngine.Random.Range(0, 100) < 90 || CreatedDonkey != null)
@@ -82,7 +88,7 @@ public class PlayMode : MonoBehaviour
             EnemiesOnArea[EnemiesOnArea.Count - 1].GetComponent<NavMeshAgent>().speed = EnemySpeed;
         }
         else
-            CreatedDonkey = Instantiate(donkeysPF[UnityEngine.Random.Range(0, donkeysPF.Length)], HomesGO[UnityEngine.Random.Range(0, HomesGO.Length - 1)].transform.position, new Quaternion());
+            EnemiesOnArea.Add(CreatedDonkey = Instantiate(donkeysPF[UnityEngine.Random.Range(0, donkeysPF.Length)], HomesGO[UnityEngine.Random.Range(0, HomesGO.Length - 1)].transform.position, new Quaternion()));
 
         if (EnemiesOnArea.Count == 10)
             Defeat();
@@ -100,14 +106,9 @@ public class PlayMode : MonoBehaviour
         gamePlay = false;
 
         List<int> allRecords = new List<int>();
-        try
-        {
-            PlayerPrefs.GetString("TopScores").Split('\n').Select(a => int.Parse(a)).ToList().ForEach(s => allRecords.Add(s));
-        }
-        catch
-        {
-
-        }
+        string topScore = PlayerPrefs.GetString("TopScores");
+        if(topScore != "")
+            topScore.Split('\n').Select(a => int.Parse(a)).ToList().ForEach(s => allRecords.Add(s));
         allRecords.Add(Score);
         allRecords = allRecords.OrderByDescending(a => a).ToList();
         PlayerPrefs.SetString("TopScores", string.Join("\n", allRecords.GetRange(0, allRecords.Count < 9? allRecords.Count : 9).Select(a => a.ToString()).ToList()));

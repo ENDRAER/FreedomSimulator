@@ -91,7 +91,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7086468659927828091}
-  - component: {fileID: 7921600434174893081}
+  - component: {fileID: 6170370550678968150}
   - component: {fileID: -5769107900789536990}
   - component: {fileID: 2084637544262260034}
   - component: {fileID: 4355030754905435906}
@@ -118,7 +118,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7921600434174893081
+--- !u!114 &6170370550678968150
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,17 +127,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2084637544262260032}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be5e584815865ab4e875215e2ae5e7ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 432fd7fa0ee88f743a7f8ad0c29ca461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyType: 0
-  NuclearExplosionPF: {fileID: 0}
-  FreezeExplosionPF: {fileID: 0}
+  health: 100
   goNavMeshAgent: {fileID: 2084637544262260034}
+  impulseScale: 40
   goRB: {fileID: -5769107900789536990}
   HatMeshRenderer: {fileID: 7515381655613105560}
-  health: 100
-  impulseScale: 40
 --- !u!54 &-5769107900789536990
 Rigidbody:
   m_ObjectHideFlags: 0
