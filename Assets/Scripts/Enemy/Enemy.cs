@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        playModeCS = PlayMode.MainBridge;
+        playModeCS = PlayMode.playMode;
         maxHealth = health;
         SetRandomDestination();
     }
@@ -33,5 +33,13 @@ public class Enemy : MonoBehaviour
     public virtual void SetDamage(float damage, Vector3 damagePos, float impulseScale)
     {
         health -= damage;
+    }
+
+    protected virtual void Death()
+    {
+        playModeCS.ScoreUpdater(1);
+        playModeCS.EnemiesCounter.transform.localEulerAngles = new Vector3(0, -90 + (18 * playModeCS.EnemiesOnArea.Count - 1), 0);
+        playModeCS.EnemiesOnArea.Remove(gameObject);
+        Destroy(gameObject);
     }
 }

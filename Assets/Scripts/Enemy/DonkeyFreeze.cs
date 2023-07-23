@@ -8,8 +8,8 @@ public class DonkeyFreeze : Enemy
     public override void SetDamage(float damage, Vector3 damagePos, float impulseScale)
     {
         base.SetDamage(damage, damagePos, impulseScale);
-        playModeCS.FreezeStarter();
+        playModeCS.StartCoroutine(playModeCS.FreezeSpawnIE());
         Instantiate(FreezeExplosionPF, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        Death();
     }
 }
