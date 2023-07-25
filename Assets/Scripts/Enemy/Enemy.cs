@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        if ( goNavMeshAgent.remainingDistance < 0.5f && goNavMeshAgent != null)
+        if ( goNavMeshAgent.remainingDistance < 0.5f)
         {
             SetRandomDestination();
         }

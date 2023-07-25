@@ -1,6 +1,6 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using static SoundCreator;
 
 public class MenuBehaviour : MonoBehaviour
 {
@@ -11,6 +11,7 @@ public class MenuBehaviour : MonoBehaviour
     [SerializeField] private TextMeshProUGUI TopScoreText;
     [SerializeField] private GameObject CreditsGO;
     [SerializeField] private Animator CreditsAnimator;
+    [SerializeField] private AudioSource ScreenChangeAU;
 
 
     public void PlayButton()
@@ -46,6 +47,8 @@ public class MenuBehaviour : MonoBehaviour
     public void ButtonPressing(Transform trans)
     {
         trans.localPosition = new Vector3(trans.localPosition.x, trans.localPosition.y == 0? -0.06f : 0, trans.localPosition.z);
+        if(trans.localPosition.y == 0)
+            ScreenChangeAU.Play();
     }
 
     public void ButtonLocker(Transform trans)

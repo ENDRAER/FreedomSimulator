@@ -21,7 +21,6 @@ public class PlayMode : MonoBehaviour
     [SerializeField] private Coroutine spawnCoroutine;
     [NonSerialized] public float SpawnSpeed = 3;
     [NonSerialized] public float EnemyHealth = 100;
-    [NonSerialized] public float EnemySpeed = 5;
     [NonSerialized] public float Damage = 120;
     [NonSerialized] public float MaxReloadTime = 1;
     [NonSerialized] public float ReloadTime = 1;
@@ -35,8 +34,6 @@ public class PlayMode : MonoBehaviour
     [SerializeField] public GameObject FrozenBounds;
     [SerializeField] public TextMeshProUGUI UpgradeCallerText;
     [SerializeField] public Animator UpgradeCallerAnimator;
-    [Header("Classes")]
-    [NonSerialized] private GetTopScoresList getTopScoresList;
 
 
     private void Awake()
@@ -70,12 +67,10 @@ public class PlayMode : MonoBehaviour
         yield return new WaitForSeconds(SpawnSpeed);
         SpawnSpeed /= 1.02f;
         EnemyHealth *= 1.02f;
-        EnemySpeed += 0.02f;
         if (UnityEngine.Random.Range(0, 100) < 80 || CreatedDonkey != null)
         {
             EnemiesOnArea.Add(Instantiate(arabicPF, HomesGO[UnityEngine.Random.Range(0, HomesGO.Length - 1)].transform.position, new Quaternion()));
             EnemiesOnArea[EnemiesOnArea.Count - 1].GetComponent<Enemy>().health = EnemyHealth;
-            EnemiesOnArea[EnemiesOnArea.Count - 1].GetComponent<NavMeshAgent>().speed = EnemySpeed;
         }
         else
             EnemiesOnArea.Add(CreatedDonkey = Instantiate(donkeysPF[UnityEngine.Random.Range(0, donkeysPF.Length)], HomesGO[UnityEngine.Random.Range(0, HomesGO.Length - 1)].transform.position, new Quaternion()));
@@ -115,10 +110,21 @@ public class PlayMode : MonoBehaviour
         NoSignalGO.SetActive(true);
         gamePlay = false;
 
-        List<int> allRecords = getTopScoresList.TopScoreIntList;
+        List<int> allRecords = new List<int>();
+        string ScoreString = PlayerPrefs.GetString("TopScores");
+        if (ScoreString != "")
+            ScoreString.Split('\n').Select(a => int.Parse(a)).ToList().ForEach(s => allRecords.Add(s));
         allRecords.Add(Score);
         allRecords = allRecords.OrderByDescending(a => a).ToList();
         PlayerPrefs.SetString("TopScores", string.Join("\n", allRecords.GetRange(0, allRecords.Count < 9 ? allRecords.Count : 9).Select(a => a.ToString()).ToList()));
+
+        SpawnSpeed = 3;
+        EnemyHealth = 100;
+        Damage = 120;
+        MaxReloadTime = 1;
+        ReloadTime = 1;
+        Score = 0;
+        ScoreText.text = "0";
     }
 
     public IEnumerator FreezeSpawnIE()
@@ -130,22 +136,7 @@ public class PlayMode : MonoBehaviour
         yield return new WaitForSeconds(3);
         EnemiesOnArea.ForEach(GO => GO.GetComponent<NavMeshAgent>().speed = 5);
         EnemiesOnArea.ForEach(GO => GO.GetComponent<Animator>().speed = 1);
-        FrozenBounds.SetActive(true);
+        FrozenBounds.SetActive(false);
         spawnCoroutine = StartCoroutine(EnemySpawnerIE());
-    }
-}
-
-public class GetTopScoresList
-{
-    public List<int> TopScoreIntList
-    { // эта штука нужна чтобы вывести сравнение счёта в конце матча, но оно ещё не готово, но уже используется
-        get
-        {
-            List<int> allRecords = new List<int>();
-            string ScoreString = PlayerPrefs.GetString("TopScores");
-            if (ScoreString != "")
-                ScoreString.Split('n').Select(a => int.Parse(a)).ToList().ForEach(s => allRecords.Add(s));
-            return allRecords;
-        }
     }
 }

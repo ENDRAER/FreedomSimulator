@@ -132,7 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   goNavMeshAgent: {fileID: 2084637544262260034}
-  impulseScale: 40
+  deathAU: {fileID: 253679909759172985, guid: 44ed14c4c640f5a4c84032fb712d65de, type: 3}
   goRB: {fileID: -5769107900789536990}
   HatMeshRenderer: {fileID: 7515381655613105560}
 --- !u!54 &-5769107900789536990

@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   goNavMeshAgent: {fileID: 7422003248731824006}
+  deathAU: {fileID: 253679909759172985, guid: 44ed14c4c640f5a4c84032fb712d65de, type: 3}
   NuclearExplosionPF: {fileID: 253679909759172985, guid: 57b750fdb02d1e145ade4159f7947fb7, type: 3}
 --- !u!65 &2568990459601925208
 BoxCollider:

@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   goNavMeshAgent: {fileID: 7422003248731824006}
-  impulseScale: 0
+  powerUpAU: {fileID: 253679909759172985, guid: 27386911af3a5a44f8d7fc39b3d587e6, type: 3}
 --- !u!65 &2568990459601925208
 BoxCollider:
   m_ObjectHideFlags: 0

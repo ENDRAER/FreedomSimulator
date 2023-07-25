@@ -4,6 +4,7 @@ public class Arabic : Enemy
 {
     [SerializeField] private Rigidbody goRB;
     [SerializeField] private MeshRenderer HatMeshRenderer;
+    [SerializeField] protected GameObject deathAU;
 
 
     public override void SetDamage(float damage, Vector3 damagePos, float impulseScale)
@@ -16,6 +17,9 @@ public class Arabic : Enemy
             SetRandomDestination();
         }
         else
+        {
+            Instantiate(deathAU, transform.position, Quaternion.identity);
             Death();
+        }
     }
 }
