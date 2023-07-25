@@ -34,6 +34,8 @@ public class PlayMode : MonoBehaviour
     [SerializeField] public GameObject FrozenBounds;
     [SerializeField] public TextMeshProUGUI UpgradeCallerText;
     [SerializeField] public Animator UpgradeCallerAnimator;
+    [SerializeField] public GameObject DefeatScreenGO;
+    [SerializeField] public TextMeshProUGUI DefeatScreenScoreText;
 
 
     private void Awake()
@@ -87,7 +89,7 @@ public class PlayMode : MonoBehaviour
     {
         Score += addedScore;
         ScoreText.text = "";
-        for (int i = 3; i != -1; i--)
+        for (int i = 7; i != -1; i--)
         {
             if (Score - i >= 0)
                 ScoreText.text += Score - i + "\n";
@@ -100,6 +102,7 @@ public class PlayMode : MonoBehaviour
             return;
         gamePlay = true;
         spawnCoroutine = StartCoroutine(EnemySpawnerIE());
+        DefeatScreenGO.SetActive(false);
     }
 
     public void EndGame()
@@ -107,7 +110,8 @@ public class PlayMode : MonoBehaviour
         EnemiesOnArea.ForEach(enemies => Destroy(enemies));
         EnemiesOnArea.Clear();
         Destroy(CreatedDonkey);
-        NoSignalGO.SetActive(true);
+        DefeatScreenGO.SetActive(true);
+        DefeatScreenScoreText.text = "score\n" + Score;
         gamePlay = false;
 
         List<int> allRecords = new List<int>();

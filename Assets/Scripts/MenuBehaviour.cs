@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using static SoundCreator;
 
 public class MenuBehaviour : MonoBehaviour
 {
@@ -9,8 +8,6 @@ public class MenuBehaviour : MonoBehaviour
     [SerializeField] private GameObject PlayButtonLocker;
     [SerializeField] private GameObject TopScoreGO;
     [SerializeField] private TextMeshProUGUI TopScoreText;
-    [SerializeField] private GameObject CreditsGO;
-    [SerializeField] private Animator CreditsAnimator;
     [SerializeField] private AudioSource ScreenChangeAU;
 
 
@@ -19,29 +16,17 @@ public class MenuBehaviour : MonoBehaviour
         PlayButtonLocker.transform.localPosition = new Vector3(0, 0.1f, 0);
         PlayButtonLocker.transform.localEulerAngles = new Vector3();
         NoSignalGO.SetActive(false);
-        CreditsGO.SetActive(false);
         TopScoreGO.SetActive(false);
 
         playMode.StartGame();
     }
 
-    public void ExitButton()
-    {
-        Application.Quit();
-    }
-
     public void RecordsButton()
     {
         TopScoreGO.SetActive(!TopScoreGO.activeSelf);
-        CreditsGO.SetActive(false);
+        NoSignalGO.SetActive(!TopScoreGO.activeSelf);
+        playMode.DefeatScreenGO.SetActive(false);
         TopScoreText.text = PlayerPrefs.GetString("TopScores");
-    }
-
-    public void CreditsButton()
-    {
-        CreditsGO.SetActive(!CreditsGO.activeSelf);
-        TopScoreGO.SetActive(false);
-        CreditsAnimator.Rebind();
     }
 
     public void ButtonPressing(Transform trans)
