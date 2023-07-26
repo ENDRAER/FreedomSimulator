@@ -24,8 +24,7 @@ public class MenuBehaviour : MonoBehaviour
     public void RecordsButton()
     {
         TopScoreGO.SetActive(!TopScoreGO.activeSelf);
-        NoSignalGO.SetActive(!TopScoreGO.activeSelf);
-        playMode.DefeatScreenGO.SetActive(false);
+        NoSignalGO.SetActive(playMode.gamePlay? false : !TopScoreGO.activeSelf);
         TopScoreText.text = PlayerPrefs.GetString("TopScores");
     }
 

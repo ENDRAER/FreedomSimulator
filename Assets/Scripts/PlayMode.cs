@@ -25,7 +25,7 @@ public class PlayMode : MonoBehaviour
     [NonSerialized] public float MaxReloadTime = 1;
     [NonSerialized] public float ReloadTime = 1;
     [NonSerialized] public int Score;
-    [NonSerialized] private bool gamePlay;
+    [NonSerialized] public bool gamePlay;
     [Header("UI")]
     [SerializeField] public GameObject NoSignalGO;
     [SerializeField] public TextMeshProUGUI ScoreText;
@@ -69,7 +69,7 @@ public class PlayMode : MonoBehaviour
         yield return new WaitForSeconds(SpawnSpeed);
         SpawnSpeed /= 1.02f;
         EnemyHealth *= 1.02f;
-        if (UnityEngine.Random.Range(0, 100) < 80 || CreatedDonkey != null)
+        if (UnityEngine.Random.Range(0, 100) < 90 || CreatedDonkey != null)
         {
             EnemiesOnArea.Add(Instantiate(arabicPF, HomesGO[UnityEngine.Random.Range(0, HomesGO.Length - 1)].transform.position, new Quaternion()));
             EnemiesOnArea[EnemiesOnArea.Count - 1].GetComponent<Enemy>().health = EnemyHealth;
